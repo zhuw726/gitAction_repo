@@ -5,9 +5,18 @@ on:
     types:
       - opened
   workflow_dispatch:
+  push:
+    branches:
+      - main
 jobs:
   job01:
     runs-on: ubuntu-latest
     steps:
-      - name: echo hello
-        run: echo "${{ github.repository }}"
+      - name: get code
+        uses: actions/checkout@v4
+      - name: install dep
+        uses: npm ci
+      - name: lint
+        uses: bpm run lint
+      - name: test
+        uses: bpm run test
