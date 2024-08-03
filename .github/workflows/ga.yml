@@ -1,5 +1,5 @@
 name: step001
-on: workflow_dispatch
+on: [workflow_dispatch, push]
 jobs:
   job01:
     runs-on: ubuntu-latest
