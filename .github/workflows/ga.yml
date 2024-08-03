@@ -41,5 +41,11 @@ jobs:
     needs: job02
     runs-on: ubuntu-latest
     steps:
+      - name: get artifacts
+        uses: actions/download-artifact@v4 
+        with:
+          name: dist-files
+      - name: Display structure of downloaded files
+        run: ls -R
       - name: deploy
         run: echo "deploy to ECR"
