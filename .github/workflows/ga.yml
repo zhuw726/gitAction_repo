@@ -52,5 +52,7 @@ jobs:
           name: dist-files
       - name: Display structure of downloaded files
         run: ls -R
+      - name: using output
+        run: echo "${{ needs.job02.outputs.script-file }}"
       - name: deploy
         run: echo "deploy to ECR"
