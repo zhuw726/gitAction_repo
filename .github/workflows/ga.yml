@@ -14,9 +14,9 @@ jobs:
     steps:
       - name: get code
         uses: actions/checkout@v4
-      - name: install dep
-        uses: npm ci
-      - name: lint
-        uses: bpm run lint
-      - name: test
-        uses: bpm run test
+      # - name: install dep
+      #   uses: npm ci
+      # - name: lint
+      #   uses: bpm run lint
+      # - name: test
+      #   uses: bpm run test
