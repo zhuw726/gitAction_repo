@@ -17,9 +17,9 @@ jobs:
       - name: install dep
         run: npm ci
       - name: lint
-        run: bpm run lint
+        run: npm run lint
       - name: test
-        run: bpm run test
+        run: npm run test
   job02:
     needs: job01
     runs-on: ubuntu-latest
