@@ -1,16 +1,8 @@
-name: wf002
+name: step001
 on: workflow_dispatch
 jobs:
-  test:
-    runs-on: uhuntu-latest
+  job01:
+    runs-on: ubuntu-latest
     steps:
-      - name: get Code
-        uses: actions/checkout@v4
-      - name: install node18
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18
-      - name: install dependencies
-        run: npm ci
-      - name: run test
-        run: npm test
+      - name: echo hello
+        run: echo ${{ toJSON(github.action_path) }}
