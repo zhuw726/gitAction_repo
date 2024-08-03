@@ -42,6 +42,9 @@ jobs:
           key: npm-cache-${{ hashFiles('**/package-lock.json') }}
       - name: install dep
         run: npm ci
+      - name: install test
+        id: run-test-in-job02
+        run: npm run test
       - name: build
         run: npm run build
       - name: publish js filename
@@ -49,6 +52,7 @@ jobs:
         id: publish
       - name: upload
         uses: actions/upload-artifact@v4
+        if: failure() && steps.run-test-in-job02.outcome == 'failure'
         with:
           name: dist-files
           path: |
