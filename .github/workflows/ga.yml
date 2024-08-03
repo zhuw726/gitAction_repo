@@ -20,3 +20,19 @@ jobs:
         run: bpm run lint
       - name: test
         run: bpm run test
+  job02:
+    needs: job01
+    runs-on: ubuntu-latest
+    steps:
+      - name: get code
+        uses: actions/checkout@v4
+      - name: install dep
+        run: npm ci
+      - name: build
+        run: npm run build
+  job03:
+    needs: job02
+    runs-on: ubuntu-latest
+    steps:
+      - name: deploy
+        run: echo "deploy to ECR"
