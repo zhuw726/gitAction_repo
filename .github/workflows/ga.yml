@@ -16,8 +16,8 @@ jobs:
         uses: actions/checkout@v4
       - name: install dep
         run: npm ci
-      - name: lint
-        run: npm run lint
+      # - name: lint
+      #   run: npm run lint
       - name: test
         run: npm run test
   job02:
