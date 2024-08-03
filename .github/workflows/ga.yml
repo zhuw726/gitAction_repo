@@ -1,11 +1,16 @@
-name: step001
-on: workflow_dispatch
+name: wf002
+on: push
 jobs:
-  job01:
-    runs-on: ubuntu-latest
+  test:
+    runs-on: uhuntu-latest
     steps:
-      - name: echo hello
-        run: echo "helwo zoo"
-      - name: echo bye
-        run: echo "bye zoo"
-      
+      - name: get Code
+        uses: actions/checkout@v4
+      - name: install node18
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - name: install dependencies
+        run: npm ci
+      - name: run test
+        run: npm test
