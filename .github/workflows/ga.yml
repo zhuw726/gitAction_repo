@@ -1,8 +1,8 @@
 name: step001
-on: [push, fork]
+on: [push, fork, workflow_dispatch]
 jobs:
   job01:
     runs-on: ubuntu-latest
     steps:
       - name: echo hello
-        run: echo ${{ github }}
+        run: echo ${{ toJSON(github) }}
