@@ -22,8 +22,8 @@ jobs:
           key: npm-cache-${{ hashFiles('**/package-lock.json') }}
       - name: install dep
         run: npm ci
-      # - name: lint
-      #   run: npm run lint
+      - name: lint
+        run: npm run lint
       - name: test
         run: npm run test
   job02:
@@ -75,6 +75,7 @@ jobs:
   job04:
     runs-on: ubuntu-latest
     if: failure()
+    needs: [job01, job02 ,job03]
     steps:
       - name: get artifacts
         run: echo "faild "
