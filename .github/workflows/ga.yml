@@ -75,7 +75,7 @@ jobs:
   job04:
     runs-on: ubuntu-latest
     if: failure()
-    needs: [job01, job02 ,job03]
+    needs: [job01, job02 ]
     steps:
       - name: get artifacts
         run: echo "faild "
