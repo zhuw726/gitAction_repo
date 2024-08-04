@@ -72,3 +72,9 @@ jobs:
         run: echo "${{ needs.job02.outputs.script-file }}"
       - name: deploy
         run: echo "deploy to ECR"
+  job04:
+    runs-on: ubuntu-latest
+    if: failure()
+    steps:
+      - name: get artifacts
+        run: echo "faild "
